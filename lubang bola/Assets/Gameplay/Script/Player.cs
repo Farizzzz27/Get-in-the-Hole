@@ -38,4 +38,12 @@ public class Player : MonoBehaviour
         // Tambahkan gaya ke player untuk pergerakan
         playerRb.AddForce(moveDirection * speed);
     }
+
+    public IEnumerator BoostSpeed(float boostAmount, float boostDuration)
+    {
+        speed += boostAmount; // Tambahkan boost ke kecepatan
+        yield return new WaitForSeconds(boostDuration); // Tunggu selama boost berlangsung
+        speed -= boostAmount; // Kembalikan kecepatan normal
+    }
+
 }
