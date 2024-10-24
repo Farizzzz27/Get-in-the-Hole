@@ -16,15 +16,19 @@ public class Animasi3 : MonoBehaviour
         // Simpan posisi awal object di scene
         originalPosition = transform.localPosition;
 
+        // Ubah posisi y saja, tetapi pertahankan posisi x dan z dari object di scene
+        fromPosition = new Vector3(originalPosition.x, -80, originalPosition.z);
+
         // Pindahkan object ke fromPosition
         transform.localPosition = fromPosition;
 
         // Buat dan simpan Tween animasi perpindahan
         moveTween = transform.DOLocalMove(originalPosition, duration)
-                            .SetDelay(delay)        // Menambahkan delay
-                            .SetEase(easeType)      // Menggunakan ease OutQuad
-                            .SetAutoKill(false);    // Jangan auto-kill agar bisa digunakan lagi
+                                .SetDelay(delay)        // Menambahkan delay
+                                .SetEase(easeType)      // Menggunakan ease OutQuad
+                                .SetAutoKill(false);    // Jangan auto-kill agar bisa digunakan lagi
     }
+
 
     // Fungsi untuk memutar kembali animasi secara mundur
     public void PlayBackward()
