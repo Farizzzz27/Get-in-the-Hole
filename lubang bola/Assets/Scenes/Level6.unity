@@ -135,6 +135,10 @@ PrefabInstance:
       propertyPath: nextSceneName
       value: Level7
       objectReference: {fileID: 0}
+    - target: {fileID: 4713412735245036373, guid: 882d10e9aaad9c64aba4549ee11543ea, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8655be0c096541f419842c966fcaba6d, type: 2}
     - target: {fileID: 5846317954467811386, guid: 882d10e9aaad9c64aba4549ee11543ea, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10.183
@@ -184,184 +188,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 882d10e9aaad9c64aba4549ee11543ea, type: 3}
---- !u!1001 &157644935
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 5792058166450920089, guid: 259dc5f0d17383b489e8de3322508388, type: 3}
-      propertyPath: m_Name
-      value: jalan kecil (9)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6569158227559530531, guid: 259dc5f0d17383b489e8de3322508388, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -7.22
-      objectReference: {fileID: 0}
-    - target: {fileID: 6569158227559530531, guid: 259dc5f0d17383b489e8de3322508388, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.33
-      objectReference: {fileID: 0}
-    - target: {fileID: 6569158227559530531, guid: 259dc5f0d17383b489e8de3322508388, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 32
-      objectReference: {fileID: 0}
-    - target: {fileID: 6569158227559530531, guid: 259dc5f0d17383b489e8de3322508388, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071067
-      objectReference: {fileID: 0}
-    - target: {fileID: 6569158227559530531, guid: 259dc5f0d17383b489e8de3322508388, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 6569158227559530531, guid: 259dc5f0d17383b489e8de3322508388, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6569158227559530531, guid: 259dc5f0d17383b489e8de3322508388, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6569158227559530531, guid: 259dc5f0d17383b489e8de3322508388, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6569158227559530531, guid: 259dc5f0d17383b489e8de3322508388, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6569158227559530531, guid: 259dc5f0d17383b489e8de3322508388, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5792058166450920089, guid: 259dc5f0d17383b489e8de3322508388, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 157644938}
-  m_SourcePrefab: {fileID: 100100000, guid: 259dc5f0d17383b489e8de3322508388, type: 3}
---- !u!1 &157644936 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5792058166450920089, guid: 259dc5f0d17383b489e8de3322508388, type: 3}
-  m_PrefabInstance: {fileID: 157644935}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &157644937 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6569158227559530531, guid: 259dc5f0d17383b489e8de3322508388, type: 3}
-  m_PrefabInstance: {fileID: 157644935}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &157644938
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 157644936}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d0390bd8b8ffd640b34fe25065ff1df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  updateType: 0
-  isSpeedBased: 0
-  hasOnStart: 0
-  hasOnPlay: 0
-  hasOnUpdate: 0
-  hasOnStepComplete: 0
-  hasOnComplete: 0
-  hasOnTweenCreated: 0
-  hasOnRewind: 0
-  onStart:
-    m_PersistentCalls:
-      m_Calls: []
-  onPlay:
-    m_PersistentCalls:
-      m_Calls: []
-  onUpdate:
-    m_PersistentCalls:
-      m_Calls: []
-  onStepComplete:
-    m_PersistentCalls:
-      m_Calls: []
-  onComplete:
-    m_PersistentCalls:
-      m_Calls: []
-  onTweenCreated:
-    m_PersistentCalls:
-      m_Calls: []
-  onRewind:
-    m_PersistentCalls:
-      m_Calls: []
-  targetIsSelf: 1
-  targetGO: {fileID: 0}
-  tweenTargetIsTargetGO: 1
-  delay: 0.1
-  duration: 0.3
-  easeType: 6
-  easeCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  loopType: 0
-  loops: 1
-  id: 
-  isRelative: 0
-  isFrom: 1
-  isIndependentUpdate: 0
-  autoKill: 0
-  autoGenerate: 1
-  isActive: 1
-  isValid: 1
-  target: {fileID: 157644937}
-  animationType: 1
-  targetType: 11
-  forcedTargetType: 0
-  autoPlay: 1
-  useTargetAsV3: 0
-  endValueFloat: 0
-  endValueV3: {x: 0, y: -80, z: 0}
-  endValueV2: {x: 0, y: 0}
-  endValueColor: {r: 1, g: 1, b: 1, a: 1}
-  endValueString: 
-  endValueRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 0
-    height: 0
-  endValueTransform: {fileID: 0}
-  optionalBool0: 0
-  optionalBool1: 0
-  optionalFloat0: 0
-  optionalInt0: 0
-  optionalRotationMode: 0
-  optionalScrambleMode: 0
-  optionalShakeRandomnessMode: 0
-  optionalString: 
 --- !u!1 &169130951
 GameObject:
   m_ObjectHideFlags: 0
@@ -580,6 +406,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2202645714509986483, guid: 5a847abb5e28eb6489ace59bc3e19baf, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5aabf060a1ba7194a8cee9a4363f5e49, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -758,6 +588,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2202645714509986483, guid: 5a847abb5e28eb6489ace59bc3e19baf, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5aabf060a1ba7194a8cee9a4363f5e49, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -900,6 +734,10 @@ PrefabInstance:
       propertyPath: duration
       value: 0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 5055467458524628584, guid: 4fc8d4010127c9747a3f4acfe0cc0460, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 41e33617e9a39bf40ae7d1c45fb3e531, type: 2}
     - target: {fileID: 6224973054384520455, guid: 4fc8d4010127c9747a3f4acfe0cc0460, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10.196
@@ -957,6 +795,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5431757070126463820, guid: 259dc5f0d17383b489e8de3322508388, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8655be0c096541f419842c966fcaba6d, type: 2}
     - target: {fileID: 5792058166450920089, guid: 259dc5f0d17383b489e8de3322508388, type: 3}
       propertyPath: m_Name
       value: jalan kecil
@@ -1135,6 +977,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5431757070126463820, guid: 259dc5f0d17383b489e8de3322508388, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8655be0c096541f419842c966fcaba6d, type: 2}
     - target: {fileID: 5792058166450920089, guid: 259dc5f0d17383b489e8de3322508388, type: 3}
       propertyPath: m_Name
       value: jalan kecil (2)
@@ -1313,6 +1159,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5431757070126463820, guid: 259dc5f0d17383b489e8de3322508388, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8655be0c096541f419842c966fcaba6d, type: 2}
     - target: {fileID: 5792058166450920089, guid: 259dc5f0d17383b489e8de3322508388, type: 3}
       propertyPath: m_Name
       value: jalan kecil (5)
@@ -1586,6 +1436,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3058326730192799811, guid: e64f499ff2ccf8b4eb30dab176dd2d1a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fb7ad7d425d636442b844603e2737136, type: 2}
     - target: {fileID: 3562812970680904086, guid: e64f499ff2ccf8b4eb30dab176dd2d1a, type: 3}
       propertyPath: m_Name
       value: tembok
@@ -1849,7 +1703,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 380647149149027124, guid: 6718909781f4c69469776e8754bfe58c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 13.87
+      value: 13.89
       objectReference: {fileID: 0}
     - target: {fileID: 380647149149027124, guid: 6718909781f4c69469776e8754bfe58c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1883,6 +1737,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: slide (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1514186167838638171, guid: 6718909781f4c69469776e8754bfe58c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ecedf978354f8134c983c801a4b8b22e, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2025,6 +1883,10 @@ PrefabInstance:
       propertyPath: duration
       value: 0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 5055467458524628584, guid: 4fc8d4010127c9747a3f4acfe0cc0460, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 41e33617e9a39bf40ae7d1c45fb3e531, type: 2}
     - target: {fileID: 6224973054384520455, guid: 4fc8d4010127c9747a3f4acfe0cc0460, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10.196
@@ -2082,6 +1944,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5431757070126463820, guid: 259dc5f0d17383b489e8de3322508388, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8655be0c096541f419842c966fcaba6d, type: 2}
     - target: {fileID: 5792058166450920089, guid: 259dc5f0d17383b489e8de3322508388, type: 3}
       propertyPath: m_Name
       value: jalan kecil (14)
@@ -2260,6 +2126,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5431757070126463820, guid: 259dc5f0d17383b489e8de3322508388, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8655be0c096541f419842c966fcaba6d, type: 2}
     - target: {fileID: 5792058166450920089, guid: 259dc5f0d17383b489e8de3322508388, type: 3}
       propertyPath: m_Name
       value: jalan kecil (6)
@@ -2438,6 +2308,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5431757070126463820, guid: 259dc5f0d17383b489e8de3322508388, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8655be0c096541f419842c966fcaba6d, type: 2}
     - target: {fileID: 5792058166450920089, guid: 259dc5f0d17383b489e8de3322508388, type: 3}
       propertyPath: m_Name
       value: jalan kecil (12)
@@ -2616,6 +2490,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5431757070126463820, guid: 259dc5f0d17383b489e8de3322508388, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8655be0c096541f419842c966fcaba6d, type: 2}
     - target: {fileID: 5792058166450920089, guid: 259dc5f0d17383b489e8de3322508388, type: 3}
       propertyPath: m_Name
       value: jalan kecil (3)
@@ -2940,6 +2818,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2202645714509986483, guid: 5a847abb5e28eb6489ace59bc3e19baf, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5aabf060a1ba7194a8cee9a4363f5e49, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3224,6 +3106,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3058326730192799811, guid: e64f499ff2ccf8b4eb30dab176dd2d1a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fb7ad7d425d636442b844603e2737136, type: 2}
     - target: {fileID: 3562812970680904086, guid: e64f499ff2ccf8b4eb30dab176dd2d1a, type: 3}
       propertyPath: m_Name
       value: tembok (1)
@@ -3402,6 +3288,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5431757070126463820, guid: 259dc5f0d17383b489e8de3322508388, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8655be0c096541f419842c966fcaba6d, type: 2}
     - target: {fileID: 5792058166450920089, guid: 259dc5f0d17383b489e8de3322508388, type: 3}
       propertyPath: m_Name
       value: jalan kecil (1)
@@ -3580,6 +3470,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5431757070126463820, guid: 259dc5f0d17383b489e8de3322508388, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8655be0c096541f419842c966fcaba6d, type: 2}
     - target: {fileID: 5792058166450920089, guid: 259dc5f0d17383b489e8de3322508388, type: 3}
       propertyPath: m_Name
       value: jalan kecil (8)
@@ -3768,7 +3662,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 380647149149027124, guid: 6718909781f4c69469776e8754bfe58c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 13.87
+      value: 13.89
       objectReference: {fileID: 0}
     - target: {fileID: 380647149149027124, guid: 6718909781f4c69469776e8754bfe58c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3802,6 +3696,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: slide (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1514186167838638171, guid: 6718909781f4c69469776e8754bfe58c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ecedf978354f8134c983c801a4b8b22e, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3946,7 +3844,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 380647149149027124, guid: 6718909781f4c69469776e8754bfe58c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 20
+      value: 20.02
       objectReference: {fileID: 0}
     - target: {fileID: 380647149149027124, guid: 6718909781f4c69469776e8754bfe58c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3980,6 +3878,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: slide (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1514186167838638171, guid: 6718909781f4c69469776e8754bfe58c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ecedf978354f8134c983c801a4b8b22e, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4114,6 +4016,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5431757070126463820, guid: 259dc5f0d17383b489e8de3322508388, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8655be0c096541f419842c966fcaba6d, type: 2}
     - target: {fileID: 5792058166450920089, guid: 259dc5f0d17383b489e8de3322508388, type: 3}
       propertyPath: m_Name
       value: jalan kecil (11)
@@ -4360,6 +4266,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5431757070126463820, guid: 259dc5f0d17383b489e8de3322508388, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8655be0c096541f419842c966fcaba6d, type: 2}
     - target: {fileID: 5792058166450920089, guid: 259dc5f0d17383b489e8de3322508388, type: 3}
       propertyPath: m_Name
       value: jalan kecil (15)
@@ -4665,6 +4575,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5431757070126463820, guid: 259dc5f0d17383b489e8de3322508388, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8655be0c096541f419842c966fcaba6d, type: 2}
     - target: {fileID: 5792058166450920089, guid: 259dc5f0d17383b489e8de3322508388, type: 3}
       propertyPath: m_Name
       value: jalan kecil (7)
@@ -4843,6 +4757,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5431757070126463820, guid: 259dc5f0d17383b489e8de3322508388, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8655be0c096541f419842c966fcaba6d, type: 2}
     - target: {fileID: 5792058166450920089, guid: 259dc5f0d17383b489e8de3322508388, type: 3}
       propertyPath: m_Name
       value: jalan kecil (4)
@@ -5065,6 +4983,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2202645714509986483, guid: 5a847abb5e28eb6489ace59bc3e19baf, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5aabf060a1ba7194a8cee9a4363f5e49, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5274,6 +5196,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5431757070126463820, guid: 259dc5f0d17383b489e8de3322508388, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8655be0c096541f419842c966fcaba6d, type: 2}
     - target: {fileID: 5792058166450920089, guid: 259dc5f0d17383b489e8de3322508388, type: 3}
       propertyPath: m_Name
       value: jalan kecil (13)
@@ -5452,13 +5378,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5431757070126463820, guid: 259dc5f0d17383b489e8de3322508388, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8655be0c096541f419842c966fcaba6d, type: 2}
     - target: {fileID: 5792058166450920089, guid: 259dc5f0d17383b489e8de3322508388, type: 3}
       propertyPath: m_Name
       value: jalan kecil (10)
       objectReference: {fileID: 0}
     - target: {fileID: 6569158227559530531, guid: 259dc5f0d17383b489e8de3322508388, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10
+      value: -10.196
       objectReference: {fileID: 0}
     - target: {fileID: 6569158227559530531, guid: 259dc5f0d17383b489e8de3322508388, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5704,6 +5634,10 @@ PrefabInstance:
       propertyPath: m_Center.x
       value: 3.008998
       objectReference: {fileID: 0}
+    - target: {fileID: 5352551394385562772, guid: cafe9200135d4de42845a9f126822a7e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fe657a881f01e6c49b32475fd6a645c3, type: 2}
     - target: {fileID: 5857187855653154113, guid: cafe9200135d4de42845a9f126822a7e, type: 3}
       propertyPath: m_Name
       value: boost besar
@@ -5892,7 +5826,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 380647149149027124, guid: 6718909781f4c69469776e8754bfe58c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 13.87
+      value: 13.89
       objectReference: {fileID: 0}
     - target: {fileID: 380647149149027124, guid: 6718909781f4c69469776e8754bfe58c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5926,6 +5860,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: slide
       objectReference: {fileID: 0}
+    - target: {fileID: 1514186167838638171, guid: 6718909781f4c69469776e8754bfe58c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ecedf978354f8134c983c801a4b8b22e, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6076,7 +6014,6 @@ SceneRoots:
   - {fileID: 971550645}
   - {fileID: 1758959109}
   - {fileID: 1257278084}
-  - {fileID: 157644935}
   - {fileID: 2032825069}
   - {fileID: 1599661252}
   - {fileID: 993876592}
