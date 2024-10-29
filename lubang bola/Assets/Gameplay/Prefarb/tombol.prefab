@@ -136,3 +136,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bridgePrefab: {fileID: 0}
   spawnPoint: {fileID: 0}
+  offMaterial: {fileID: 2100000, guid: a7b6bfc17dd81df43bc95f8c2e1b0b5d, type: 2}
