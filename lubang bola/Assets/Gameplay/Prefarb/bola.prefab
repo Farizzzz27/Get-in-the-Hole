@@ -62,7 +62,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 8b0e4ab66fe006c44b4691ca307ae5c4, type: 3}
       propertyPath: m_Name
-      value: bola biru
+      value: bola
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 8b0e4ab66fe006c44b4691ca307ae5c4, type: 3}
       propertyPath: m_TagString
@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10f3e4e72774bdd4cad3898ebc5f96d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 15
   cameraTransform: {fileID: 0}
 --- !u!114 &7315285285284211211
 MonoBehaviour:

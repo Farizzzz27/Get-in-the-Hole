@@ -7,25 +7,26 @@ public class CameraFollow : MonoBehaviour
     public Transform target; // Referensi bola
     public Vector3 offset = new Vector3(0, 5, -10); // Offset posisi kamera dari bola
     public float rotationSpeed = 50f; // Kecepatan rotasi kamera
+    public float rotationX = 10f; // Variabel rotasi pada sumbu X untuk mengatur tinggi pandangan
 
-    private float currentRotation = 0f; // Menyimpan nilai rotasi saat ini
+    private float currentRotationY = 0f; // Menyimpan nilai rotasi saat ini pada sumbu Y
 
     private void LateUpdate()
     {
         if (target != null)
         {
-            // Periksa input untuk rotasi dengan kontrol yang dibalik
+            // Periksa input untuk rotasi pada sumbu Y (kiri dan kanan)
             if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
             {
-                currentRotation -= rotationSpeed * Time.deltaTime; // Rotasi ke kiri
+                currentRotationY -= rotationSpeed * Time.deltaTime; // Rotasi ke kiri
             }
             else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
             {
-                currentRotation += rotationSpeed * Time.deltaTime; // Rotasi ke kanan
+                currentRotationY += rotationSpeed * Time.deltaTime; // Rotasi ke kanan
             }
 
-            // Terapkan rotasi pada offset
-            Quaternion rotation = Quaternion.Euler(0, currentRotation, 0);
+            // Terapkan rotasi pada offset dengan rotasi sumbu Y dan X
+            Quaternion rotation = Quaternion.Euler(rotationX, currentRotationY, 0);
             Vector3 rotatedOffset = rotation * offset;
 
             // Atur posisi kamera berdasarkan offset yang sudah diputar
