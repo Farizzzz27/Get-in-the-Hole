@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4294069444602069210}
   - component: {fileID: 4932897611761594170}
   - component: {fileID: -6607903464544273274}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: boost kecil
   m_TagString: Untagged
   m_Icon: {fileID: 0}

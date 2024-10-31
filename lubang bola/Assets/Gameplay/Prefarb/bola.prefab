@@ -152,6 +152,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   cameraTransform: {fileID: 0}
+  walkSFX: {fileID: 0}
+  collisionSFX: {fileID: 0}
+  minWalkSpeed: 0.5
 --- !u!114 &7315285285284211211
 MonoBehaviour:
   m_ObjectHideFlags: 0

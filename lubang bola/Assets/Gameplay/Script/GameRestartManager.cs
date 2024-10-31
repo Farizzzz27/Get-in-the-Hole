@@ -9,6 +9,7 @@ public class GameRestartManager : MonoBehaviour
     public Image fadeImage;           // UI Image untuk fade-out
     public float fadeDuration = 1f;   // Durasi fade-out
     public float fallThreshold = -50f; // Batas nilai Y sebelum restart
+    public AudioSource loseSFX;       // AudioSource untuk SFX kalah
 
     private bool isRestarting = false; // Pengaman agar restart hanya terjadi sekali
 
@@ -32,6 +33,12 @@ public class GameRestartManager : MonoBehaviour
     public void RestartGame()
     {
         isRestarting = true; // Tandai bahwa proses restart sudah dimulai
+
+        // Mainkan SFX kalah
+        if (loseSFX != null)
+        {
+            loseSFX.Play();
+        }
 
         // Play backward semua animasi DoTween di scene
         DOTween.PlayBackwardsAll();

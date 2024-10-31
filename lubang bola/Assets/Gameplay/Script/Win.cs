@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class Win : MonoBehaviour
 {
     public ParticleSystem fireworksParticle; // Referensi ke partikel kembang api
+    public AudioSource winSFX;               // AudioSource untuk SFX menang
     public float delayBeforeNextScene = 3f;  // Waktu tunggu sebelum pindah scene
     public string nextSceneName;             // Nama scene berikutnya
 
@@ -25,6 +26,12 @@ public class Win : MonoBehaviour
         if (fireworksParticle != null)
         {
             fireworksParticle.Play();
+        }
+
+        // Mainkan SFX menang
+        if (winSFX != null)
+        {
+            winSFX.Play();
         }
 
         // Pindah ke scene berikutnya setelah delay

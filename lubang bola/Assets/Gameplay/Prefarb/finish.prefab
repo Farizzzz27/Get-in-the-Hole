@@ -4846,7 +4846,7 @@ GameObject:
   - component: {fileID: 8424493564081059060}
   - component: {fileID: 6027019743298010943}
   - component: {fileID: 2806383022370590489}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: finish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5083,6 +5083,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireworksParticle: {fileID: 4241168998627578996}
+  winSFX: {fileID: 0}
   delayBeforeNextScene: 4
   nextSceneName: 
 --- !u!1 &6626281444828337123

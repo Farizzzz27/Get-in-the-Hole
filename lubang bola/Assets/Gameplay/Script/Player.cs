@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -8,10 +7,19 @@ public class Player : MonoBehaviour
     private Rigidbody playerRb;
     public Transform cameraTransform; // Referensi kamera
 
+    // Audio
+    public AudioSource walkSFX; // AudioSource untuk SFX jalan
+    public AudioSource collisionSFX; // AudioSource untuk SFX tabrakan
+    public float minWalkSpeed = 0.1f; // Kecepatan minimum untuk memutar SFX jalan
+
     // Start is called before the first frame update
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();
+        if (walkSFX != null)
+        {
+            walkSFX.loop = true; // Set audio jalan agar di-loop
+        }
     }
 
     // Update is called once per frame
@@ -37,6 +45,22 @@ public class Player : MonoBehaviour
 
         // Tambahkan gaya ke player untuk pergerakan
         playerRb.AddForce(moveDirection * speed);
+
+        // Cek apakah kecepatan player lebih besar dari kecepatan minimum untuk memainkan SFX jalan
+        if (playerRb.velocity.magnitude > minWalkSpeed)
+        {
+            if (!walkSFX.isPlaying)
+            {
+                walkSFX.Play(); // Mulai SFX jalan jika tidak sedang diputar
+            }
+        }
+        else
+        {
+            if (walkSFX.isPlaying)
+            {
+                walkSFX.Stop(); // Hentikan SFX jalan jika tidak bergerak
+            }
+        }
     }
 
     public IEnumerator BoostSpeed(float boostAmount, float boostDuration)
@@ -46,4 +70,12 @@ public class Player : MonoBehaviour
         speed -= boostAmount; // Kembalikan kecepatan normal
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        // Cek jika SFX sedang bermain, maka hentikan dulu untuk memungkinkan pemutaran ulang
+        if (collisionSFX != null)
+        {
+            collisionSFX.Play(); // Putar ulang SFX tabrakan
+        }
+    }
 }
