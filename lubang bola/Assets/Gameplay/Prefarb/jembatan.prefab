@@ -163,7 +163,7 @@ GameObject:
   - component: {fileID: 8695100670179306286}
   m_Layer: 0
   m_Name: jembatan
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

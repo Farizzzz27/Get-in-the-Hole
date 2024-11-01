@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: jalan besar
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 166f977c5aea27e49af3ff80374cc50c, type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

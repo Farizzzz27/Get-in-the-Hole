@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
     public AudioSource collisionSFX; // AudioSource untuk SFX tabrakan
     public float minWalkSpeed = 0.1f; // Kecepatan minimum untuk memutar SFX jalan
 
+    private bool isOnPlatform = false; // Menyimpan status apakah player berada di atas platform
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,8 +48,8 @@ public class Player : MonoBehaviour
         // Tambahkan gaya ke player untuk pergerakan
         playerRb.AddForce(moveDirection * speed);
 
-        // Cek apakah kecepatan player lebih besar dari kecepatan minimum untuk memainkan SFX jalan
-        if (playerRb.velocity.magnitude > minWalkSpeed)
+        // Cek apakah player bergerak di atas platform dengan kecepatan minimum untuk memainkan SFX jalan
+        if (isOnPlatform && playerRb.velocity.magnitude > minWalkSpeed)
         {
             if (!walkSFX.isPlaying)
             {
@@ -58,7 +60,7 @@ public class Player : MonoBehaviour
         {
             if (walkSFX.isPlaying)
             {
-                walkSFX.Stop(); // Hentikan SFX jalan jika tidak bergerak
+                walkSFX.Stop(); // Hentikan SFX jalan jika tidak bergerak atau tidak di atas platform
             }
         }
     }
@@ -76,6 +78,24 @@ public class Player : MonoBehaviour
         if (collisionSFX != null)
         {
             collisionSFX.Play(); // Putar ulang SFX tabrakan
+        }
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        // Cek apakah player sedang berada di atas platform
+        if (collision.gameObject.CompareTag("Platform"))
+        {
+            isOnPlatform = true;
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        // Set isOnPlatform ke false ketika player tidak lagi di atas platform
+        if (collision.gameObject.CompareTag("Platform"))
+        {
+            isOnPlatform = false;
         }
     }
 }
