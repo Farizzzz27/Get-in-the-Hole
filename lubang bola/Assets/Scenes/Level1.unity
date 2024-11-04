@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 3
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: da04fb2a289ef1b47bf5b07b9285dd70, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.22010098, g: 0.3873876, b: 0.5896629, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -757,7 +757,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &217031391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2353,15 +2353,15 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 669637924}
   m_LocalRotation: {x: 0.93674934, y: 0.005188103, z: 0.013898021, w: -0.34968662}
-  m_LocalPosition: {x: 0, y: 0, z: -494.4095}
-  m_LocalScale: {x: 150.84546, y: 2.7640762, z: 59.216793}
+  m_LocalPosition: {x: 0, y: 0, z: -494.41}
+  m_LocalScale: {x: 227.1431, y: 3.9520762, z: 111.55852}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 217031394}
   m_LocalEulerAnglesHint: {x: 220.94101, y: -1.7, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.3794528, y: 340.76874}
+  m_AnchoredPosition: {x: 1.3795, y: 340.77}
   m_SizeDelta: {x: 3000, y: 3000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!64 &669637926
@@ -3148,7 +3148,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60.000004
+  field of view: 49
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -4443,16 +4443,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1581597353}
-  m_LocalRotation: {x: -0.34756535, y: -0.044884473, z: 0.014251694, w: 0.9364725}
-  m_LocalPosition: {x: 0, y: 0, z: -357.59143}
+  m_LocalRotation: {x: -0.258819, y: 0, z: 0, w: 0.9659259}
+  m_LocalPosition: {x: 0, y: 0, z: -776}
   m_LocalScale: {x: 232.80573, y: 5.6363893, z: 241.60587}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 217031394}
-  m_LocalEulerAnglesHint: {x: -40.518, y: -7.101, z: 4.368}
+  m_LocalEulerAnglesHint: {x: -30, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 25.748444, y: 106.42218}
+  m_AnchoredPosition: {x: 60, y: -146}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!64 &1581597355
