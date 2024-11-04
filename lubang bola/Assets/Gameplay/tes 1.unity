@@ -3694,8 +3694,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   respawnDelay: 2
   fragmentPrefab: {fileID: 1562481324837281052, guid: 96b5c7b60ac620e4fa3207ad5c3dc283, type: 3}
-  fragmentCount: 10
-  explosionForce: 500
+  fragmentCount: 20
+  explosionForce: 700
   explosionRadius: 2
 --- !u!65 &2084136991
 BoxCollider:
