@@ -2402,6 +2402,7 @@ GameObject:
   - component: {fileID: 748641413}
   - component: {fileID: 748641412}
   - component: {fileID: 748641411}
+  - component: {fileID: 748641414}
   m_Layer: 5
   m_Name: btn start
   m_TagString: Untagged
@@ -2472,7 +2473,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 748641412}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 748641414}
+        m_TargetAssemblyTypeName: SceneSwitcher, Assembly-CSharp
+        m_MethodName: LoadSceneByIndex
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &748641412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2511,6 +2524,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 748641409}
   m_CullTransparentMesh: 1
+--- !u!114 &748641414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 748641409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 338e077fbb17ffe439f1e67f45fd4d50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &761720581
 GameObject:
   m_ObjectHideFlags: 0

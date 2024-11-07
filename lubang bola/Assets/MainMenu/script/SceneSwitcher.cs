@@ -1,18 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SceneSwitcher : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    // Fungsi untuk pindah ke scene tertentu
+    public void LoadSceneByName(string sceneName)
     {
-        
+        SceneManager.LoadScene(sceneName);
     }
 
-    // Update is called once per frame
-    void Update()
+    // Fungsi untuk pindah ke scene berdasarkan index di Build Settings
+    public void LoadSceneByIndex(int sceneIndex)
     {
-        
+        SceneManager.LoadScene(sceneIndex);
     }
 }

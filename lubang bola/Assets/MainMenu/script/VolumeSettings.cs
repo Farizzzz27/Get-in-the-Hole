@@ -62,42 +62,44 @@ public class VolumeSettings : MonoBehaviour
     private void PlayMusicBasedOnScene()
     {
         string currentScene = SceneManager.GetActiveScene().name;
+        Debug.Log("Current Scene: " + currentScene);
 
-        // Cek apakah sedang di scene Main Menu
         if (currentScene == "Mainmenu")
         {
-            // Hentikan musik gameplay jika ada yang sedang aktif
+            // Stop gameplay music and play main menu music
             if (activeGameplayAudioSource != null && activeGameplayAudioSource.isPlaying)
             {
                 activeGameplayAudioSource.Stop();
-                activeGameplayAudioSource = null;  // Reset untuk gameplay scene nanti
             }
 
-            // Mulai mainkan musik Main Menu jika belum diputar
             if (!mainMenuAudioSource.isPlaying)
             {
                 mainMenuAudioSource.Play();
+                Debug.Log("Main menu Music Started");
             }
         }
         else
         {
-            // Hentikan musik Main Menu jika sedang diputar
+            // Stop main menu music and play gameplay music
             if (mainMenuAudioSource.isPlaying)
             {
                 mainMenuAudioSource.Stop();
             }
 
-            // Pilih antara gameplayAudioSource1 atau gameplayAudioSource2 secara acak jika belum ada yang aktif
-            if (activeGameplayAudioSource == null)
+            if (activeGameplayAudioSource == null || !activeGameplayAudioSource.isPlaying)
             {
+                // Choose randomly between gameplayAudioSource1 or gameplayAudioSource2
                 activeGameplayAudioSource = (Random.value > 0.5f) ? gameplayAudioSource1 : gameplayAudioSource2;
                 activeGameplayAudioSource.Play();
+                Debug.Log("Gameplay Music Started: " + activeGameplayAudioSource.name);
             }
         }
 
-        // Update volume untuk memastikan volume sesuai slider
+        // Ensure volume is set
         UpdateBGMVolume();
+        Debug.Log("BGM Volume updated to: " + bgmSlider.value);
     }
+
 
 
     private void OnDisable()
