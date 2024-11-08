@@ -1079,7 +1079,7 @@ AudioSource:
   m_GameObject: {fileID: 292171122}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 9016331376761980999, guid: 589f955e5f6d1e0458aaf172f177d3ea, type: 2}
   m_audioClip: {fileID: 8300000, guid: d98e6b4a3a029654cb153c9b8c4482f7, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -1234,9 +1234,9 @@ AudioSource:
   m_GameObject: {fileID: 333779808}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 8605363721589550251, guid: 589f955e5f6d1e0458aaf172f177d3ea, type: 2}
   m_audioClip: {fileID: 8300000, guid: 5556a0e906a708d498fe288401c414f4, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
@@ -3524,7 +3524,7 @@ AudioSource:
   m_GameObject: {fileID: 1179744532}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 9016331376761980999, guid: 589f955e5f6d1e0458aaf172f177d3ea, type: 2}
   m_audioClip: {fileID: 8300000, guid: 662aedd96dde31a4e9700ef698ca3503, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -5285,7 +5285,7 @@ AudioSource:
   m_GameObject: {fileID: 1668082343}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 9016331376761980999, guid: 589f955e5f6d1e0458aaf172f177d3ea, type: 2}
   m_audioClip: {fileID: 8300000, guid: b53d9d41a069546408e0dfa27676c063, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -6530,6 +6530,7 @@ GameObject:
   - component: {fileID: 2015301042}
   - component: {fileID: 2015301043}
   - component: {fileID: 2015301044}
+  - component: {fileID: 2015301045}
   m_Layer: 5
   m_Name: Manager
   m_TagString: Untagged
@@ -6610,6 +6611,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainMenuPanel: {fileID: 1423626206}
   settingsPanel: {fileID: 947158044}
+--- !u!114 &2015301045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2015301040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 235d2854f4b5ef54cb828b1d6661075b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainMenuMusicSource: {fileID: 292171123}
+  gameplayMusicSource1: {fileID: 1668082344}
+  gameplayMusicSource2: {fileID: 1179744534}
+  sfxSource: {fileID: 333779809}
+  audioMixer: {fileID: 24100000, guid: 589f955e5f6d1e0458aaf172f177d3ea, type: 2}
 --- !u!1001 &2041180607
 PrefabInstance:
   m_ObjectHideFlags: 0

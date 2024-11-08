@@ -22,11 +22,11 @@ public class VolumeSettings : MonoBehaviour
     {
         // Atur slider BGM dan volume dari PlayerPrefs
         bgmSlider.value = PlayerPrefs.GetFloat(BGMVolumeKey, 1f);
-        UpdateBGMVolume();
+        UpdateVolume();
 
         // Atur slider SFX dan volume dari PlayerPrefs
         sfxSlider.value = PlayerPrefs.GetFloat(SFXVolumeKey, 1f);
-        sfxAudioSource.volume = sfxSlider.value;
+        UpdateSFXVolume(sfxSlider.value);
 
         // Tambahkan listener ke slider
         bgmSlider.onValueChanged.AddListener(OnBGMVolumeChanged);
@@ -39,23 +39,40 @@ public class VolumeSettings : MonoBehaviour
     private void OnBGMVolumeChanged(float volume)
     {
         PlayerPrefs.SetFloat(BGMVolumeKey, volume);
-        UpdateBGMVolume();
+        UpdateVolume();
     }
 
     private void OnSFXVolumeChanged(float volume)
     {
-        sfxAudioSource.volume = volume;
         PlayerPrefs.SetFloat(SFXVolumeKey, volume);
+        UpdateSFXVolume(volume);
     }
 
-    private void UpdateBGMVolume()
+    private void UpdateVolume()
     {
-        // Atur volume berdasarkan slider untuk setiap AudioSource
-        mainMenuAudioSource.volume = bgmSlider.value;
+        // Gunakan AudioListener untuk mengubah volume global
+        AudioListener.volume = bgmSlider.value;
 
-        if (activeGameplayAudioSource != null)
+        if (activeGameplayAudioSource != null && activeGameplayAudioSource.volume > 0)
         {
             activeGameplayAudioSource.volume = bgmSlider.value;
+        }
+
+        // Jika volume BGM 0, stop semua musik
+        if (bgmSlider.value == 0)
+        {
+            StopAllMusic();
+        }
+    }
+
+    private void UpdateSFXVolume(float volume)
+    {
+        sfxAudioSource.volume = volume;
+
+        // Jika volume SFX 0, stop semua SFX
+        if (volume == 0)
+        {
+            sfxAudioSource.Stop();
         }
     }
 
@@ -67,16 +84,15 @@ public class VolumeSettings : MonoBehaviour
         if (currentScene == "Mainmenu")
         {
             // Stop gameplay music and play main menu music
-            if (activeGameplayAudioSource != null && activeGameplayAudioSource.isPlaying)
-            {
-                activeGameplayAudioSource.Stop();
-            }
-
+            StopAllMusic();
             if (!mainMenuAudioSource.isPlaying)
             {
                 mainMenuAudioSource.Play();
                 Debug.Log("Main menu Music Started");
             }
+
+            // Nonaktifkan SFX di main menu
+            sfxAudioSource.Stop();
         }
         else
         {
@@ -88,19 +104,35 @@ public class VolumeSettings : MonoBehaviour
 
             if (activeGameplayAudioSource == null || !activeGameplayAudioSource.isPlaying)
             {
-                // Choose randomly between gameplayAudioSource1 or gameplayAudioSource2
+                // Pilih secara acak antara gameplayAudioSource1 atau gameplayAudioSource2
                 activeGameplayAudioSource = (Random.value > 0.5f) ? gameplayAudioSource1 : gameplayAudioSource2;
                 activeGameplayAudioSource.Play();
                 Debug.Log("Gameplay Music Started: " + activeGameplayAudioSource.name);
             }
-        }
 
-        // Ensure volume is set
-        UpdateBGMVolume();
-        Debug.Log("BGM Volume updated to: " + bgmSlider.value);
+            // Aktifkan SFX di scene gameplay
+            if (!sfxAudioSource.isPlaying)
+            {
+                sfxAudioSource.Play();
+            }
+        }
     }
 
+    private void StopAllMusic()
+    {
+        if (mainMenuAudioSource.isPlaying)
+        {
+            mainMenuAudioSource.Stop();
+        }
 
+        if (activeGameplayAudioSource != null && activeGameplayAudioSource.isPlaying)
+        {
+            activeGameplayAudioSource.Stop();
+        }
+
+        // Stop semua audio
+        sfxAudioSource.Stop();
+    }
 
     private void OnDisable()
     {

@@ -5,16 +5,23 @@ using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
-    public static AudioManager Instance { get; private set; }  // Singleton instance
+    public static AudioManager Instance { get; private set; }
 
     [Header("---------- Audio Source ----------")]
     [SerializeField] private AudioSource mainMenuMusicSource;
-    [SerializeField] private AudioSource gameplayMusicSource;
-    [SerializeField] public AudioSource sfxSource;  // AudioSource untuk SFX
+    [SerializeField] private AudioSource gameplayMusicSource1;
+    [SerializeField] private AudioSource gameplayMusicSource2;
+    [SerializeField] public AudioSource sfxSource;
+
+    [Header("---------- Audio Mixer ----------")]
+    [SerializeField] private AudioMixer audioMixer;
+
+    private AudioSource activeGameplayMusicSource;
+    private float bgmVolume = 1f;
+    private float sfxVolume = 1f;
 
     private void Awake()
     {
-        // Singleton pattern
         if (Instance == null)
         {
             Instance = this;
@@ -28,38 +35,39 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        SceneManager.sceneLoaded += OnSceneLoaded;  // Event listener untuk scene change
-        PlayMusicBasedOnScene(); // Play music on start based on the current scene
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     private void OnDestroy()
     {
-        SceneManager.sceneLoaded -= OnSceneLoaded;  // Hapus event listener saat script dihancurkan
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        PlayMusicBasedOnScene();  // Atur musik sesuai dengan scene
+        SetBGMVolume(bgmVolume); // Pastikan BGM volume diterapkan
+        SetSFXVolume(sfxVolume); // Pastikan SFX volume diterapkan
+        PlayMusicBasedOnScene();
     }
 
     private void PlayMusicBasedOnScene()
     {
         string sceneName = SceneManager.GetActiveScene().name;
+        StopAllMusic();
 
-        if (sceneName == "MainMenu")
+        if (sceneName == "Mainmenu")
         {
-            StopAllMusic();  // Stop semua musik sebelum memutar yang baru
-            if (!mainMenuMusicSource.isPlaying)
+            if (!mainMenuMusicSource.isPlaying && bgmVolume > 0)
             {
                 mainMenuMusicSource.Play();
             }
         }
         else
         {
-            StopAllMusic();  // Stop semua musik sebelum memutar yang baru
-            if (!gameplayMusicSource.isPlaying)
+            activeGameplayMusicSource = (Random.value > 0.5f) ? gameplayMusicSource1 : gameplayMusicSource2;
+            if (!activeGameplayMusicSource.isPlaying && bgmVolume > 0)
             {
-                gameplayMusicSource.Play();
+                activeGameplayMusicSource.Play();
             }
         }
     }
@@ -70,41 +78,45 @@ public class AudioManager : MonoBehaviour
         {
             mainMenuMusicSource.Stop();
         }
-        if (gameplayMusicSource.isPlaying)
+        if (gameplayMusicSource1.isPlaying)
         {
-            gameplayMusicSource.Stop();
+            gameplayMusicSource1.Stop();
         }
-        // Jangan menghentikan SFX
+        if (gameplayMusicSource2.isPlaying)
+        {
+            gameplayMusicSource2.Stop();
+        }
     }
 
-    // Set volume SFX dari VolumeSettings
+    public void SetBGMVolume(float volume)
+    {
+        bgmVolume = volume;
+
+        mainMenuMusicSource.volume = volume;
+        if (activeGameplayMusicSource != null)
+        {
+            activeGameplayMusicSource.volume = volume;
+
+            if (volume == 0)
+            {
+                activeGameplayMusicSource.Stop();
+            }
+        }
+
+        if (volume == 0 && mainMenuMusicSource.isPlaying)
+        {
+            mainMenuMusicSource.Stop();
+        }
+    }
+
     public void SetSFXVolume(float volume)
     {
-        if (sfxSource != null)
+        sfxVolume = volume;
+        sfxSource.volume = volume;
+
+        if (volume == 0 && sfxSource.isPlaying)
         {
-            sfxSource.volume = volume;
-        }
-    }
-
-    public bool IsSFXPlaying()
-    {
-        return sfxSource.isPlaying;
-    }
-
-    public void PlaySFX(AudioClip clip)
-    {
-        StartCoroutine(PlaySFXCoroutine(clip));
-    }
-
-    private IEnumerator PlaySFXCoroutine(AudioClip clip)
-    {
-        if (clip != null && sfxSource != null)
-        {
-            sfxSource.clip = clip;
-            sfxSource.Play();
-
-            // Tunggu sampai SFX selesai diputar
-            yield return new WaitForSeconds(clip.length);
+            sfxSource.Stop();
         }
     }
 }
