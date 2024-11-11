@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TIme : MonoBehaviour
+public class Timee : MonoBehaviour
 {
     public Text stopwatchText; // Referensi ke UI Text
     private float timeElapsed = 0f; // Menyimpan waktu yang telah berlalu

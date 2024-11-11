@@ -141,5 +141,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54c041c40fe87f542aa790e980c0289c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boostAmount: 20
-  boostDuration: 1
+  boostAmount: 15
+  boostDuration: 0.5
