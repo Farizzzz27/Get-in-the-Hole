@@ -10,10 +10,22 @@ public class GameRestartManager : MonoBehaviour
     public Text attemptText;           // UI Text untuk menampilkan jumlah percobaan
     public float fadeDuration = 1f;    // Durasi fade-out
     public float fallThreshold = -50f; // Batas nilai Y sebelum restart
-    public AudioSource loseSFX;        // AudioSource untuk SFX kalah
 
     private bool isRestarting = false; // Pengaman agar restart hanya terjadi sekali
     private int attemptCount = 0;      // Menghitung jumlah percobaan
+    private AdiosManager adiosManager; // Referensi ke AdiosManager
+
+    private void Awake()
+    {
+        // Mencari AdiosManager di scene menggunakan tag "Audio"
+        adiosManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AdiosManager>();
+
+        // Jika AdiosManager tidak ditemukan, tampilkan pesan error
+        if (adiosManager == null)
+        {
+            Debug.LogError("AdiosManager belum ditemukan di scene. Pastikan terdapat GameObject dengan tag 'Audio' dan memiliki komponen AdiosManager.");
+        }
+    }
 
     private void Start()
     {
@@ -49,10 +61,10 @@ public class GameRestartManager : MonoBehaviour
         // Perbarui teks attempt di UI
         UpdateAttemptText();
 
-        // Mainkan SFX kalah
-        if (loseSFX != null)
+        // Mainkan SFX kalah melalui AdiosManager
+        if (adiosManager != null)
         {
-            loseSFX.Play();
+            adiosManager.PlaySFX(adiosManager.lose);
         }
 
         // Play backward semua animasi DoTween di scene

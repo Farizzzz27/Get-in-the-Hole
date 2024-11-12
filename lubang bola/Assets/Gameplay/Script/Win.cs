@@ -4,11 +4,23 @@ using UnityEngine.SceneManagement;
 public class Win : MonoBehaviour
 {
     public ParticleSystem fireworksParticle; // Referensi ke partikel kembang api
-    public AudioSource winSFX;               // AudioSource untuk SFX menang
     public float delayBeforeNextScene = 3f;  // Waktu tunggu sebelum pindah scene
     public string nextSceneName;             // Nama scene berikutnya
 
-    private bool hasWon = false; // Pengaman agar hanya satu kali menang
+    private bool hasWon = false;             // Pengaman agar hanya satu kali menang
+    private AdiosManager adiosManager;       // Referensi ke AdiosManager
+
+    private void Awake()
+    {
+        // Mencari AdiosManager di scene menggunakan tag "Audio"
+        adiosManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AdiosManager>();
+
+        // Jika AdiosManager tidak ditemukan, tampilkan pesan error
+        if (adiosManager == null)
+        {
+            Debug.LogError("AdiosManager belum ditemukan di scene. Pastikan terdapat GameObject dengan tag 'Audio' dan memiliki komponen AdiosManager.");
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -28,10 +40,10 @@ public class Win : MonoBehaviour
             fireworksParticle.Play();
         }
 
-        // Mainkan SFX menang
-        if (winSFX != null)
+        // Mainkan SFX menang melalui AdiosManager
+        if (adiosManager != null)
         {
-            winSFX.Play();
+            adiosManager.PlaySFX(adiosManager.win);
         }
 
         // Pindah ke scene berikutnya setelah delay
