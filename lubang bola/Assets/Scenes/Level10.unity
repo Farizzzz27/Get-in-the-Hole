@@ -8869,6 +8869,8 @@ MonoBehaviour:
   offset: {x: 0, y: 2, z: -8}
   rotationSpeed: 150
   rotationX: 20
+  rotationY: 0
+  rotationZ: 0
 --- !u!114 &1174613972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15383,9 +15385,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireworksParticle: {fileID: 1432973938}
-  winSFX: {fileID: 0}
   delayBeforeNextScene: 4
-  nextSceneName: 
+  nextSceneName: Level11
 --- !u!65 &1810905074
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17128,7 +17129,6 @@ MonoBehaviour:
   attemptText: {fileID: 1970059342}
   fadeDuration: 0.4
   fallThreshold: -20
-  loseSFX: {fileID: 216644566}
 --- !u!4 &2138345638
 Transform:
   m_ObjectHideFlags: 0
