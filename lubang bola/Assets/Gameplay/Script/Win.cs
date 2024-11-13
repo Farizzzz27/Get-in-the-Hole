@@ -3,56 +3,39 @@ using UnityEngine.SceneManagement;
 
 public class Win : MonoBehaviour
 {
-    public ParticleSystem fireworksParticle; // Referensi ke partikel kembang api
-    public float delayBeforeNextScene = 3f;  // Waktu tunggu sebelum pindah scene
-    public string nextSceneName;             // Nama scene berikutnya
+    public ParticleSystem fireworksParticle;
+    public AudioSource winSFX;
+    public float delayBeforeNextScene = 3f;
+    public string nextSceneName; // Masukkan "Level2" jika ini adalah Level1
 
-    private bool hasWon = false;             // Pengaman agar hanya satu kali menang
-    private AdiosManager adiosManager;       // Referensi ke AdiosManager
-
-    private void Awake()
-    {
-        // Mencari AdiosManager di scene menggunakan tag "Audio"
-        adiosManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AdiosManager>();
-
-        // Jika AdiosManager tidak ditemukan, tampilkan pesan error
-        if (adiosManager == null)
-        {
-            Debug.LogError("AdiosManager belum ditemukan di scene. Pastikan terdapat GameObject dengan tag 'Audio' dan memiliki komponen AdiosManager.");
-        }
-    }
+    private bool hasWon = false;
 
     private void OnTriggerEnter(Collider other)
     {
-        // Cek jika bola memasuki platform
         if (other.CompareTag("Player") && !hasWon)
         {
             hasWon = true;
             PlayFireworks();
+            SaveProgress();
         }
     }
 
     private void PlayFireworks()
     {
-        // Aktifkan partikel kembang api
-        if (fireworksParticle != null)
-        {
-            fireworksParticle.Play();
-        }
-
-        // Mainkan SFX menang melalui AdiosManager
-        if (adiosManager != null)
-        {
-            adiosManager.PlaySFX(adiosManager.win);
-        }
-
-        // Pindah ke scene berikutnya setelah delay
+        if (fireworksParticle != null) fireworksParticle.Play();
+        if (winSFX != null) winSFX.Play();
         Invoke("LoadNextScene", delayBeforeNextScene);
+    }
+
+    private void SaveProgress()
+    {
+        string currentLevel = SceneManager.GetActiveScene().name; // Nama level misalnya "Level1"
+        PlayerPrefs.SetInt(currentLevel, 1); // Simpan status level selesai untuk nama scene saat ini
+        PlayerPrefs.Save(); // Pastikan tersimpan
     }
 
     private void LoadNextScene()
     {
-        // Pindah ke scene berikutnya
-        SceneManager.LoadScene(nextSceneName);
+        SceneManager.LoadScene(nextSceneName); // Pastikan nextSceneName sudah diisi, misalnya "Level2"
     }
 }
