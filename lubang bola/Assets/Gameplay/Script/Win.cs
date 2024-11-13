@@ -16,6 +16,7 @@ public class Win : MonoBehaviour
         {
             hasWon = true;
             PlayFireworks();
+            FreezeCamera(); // Memanggil fungsi freeze kamera
             SaveProgress();
         }
     }
@@ -25,6 +26,15 @@ public class Win : MonoBehaviour
         if (fireworksParticle != null) fireworksParticle.Play();
         if (winSFX != null) winSFX.Play();
         Invoke("LoadNextScene", delayBeforeNextScene);
+    }
+
+    private void FreezeCamera()
+    {
+        CameraFollow cameraFollow = Camera.main.GetComponent<CameraFollow>();
+        if (cameraFollow != null)
+        {
+            cameraFollow.freezeCamera = true; // Menghentikan rotasi dan posisi kamera
+        }
     }
 
     private void SaveProgress()
