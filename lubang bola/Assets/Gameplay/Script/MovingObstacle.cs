@@ -23,7 +23,8 @@ public class MovingObstacle : MonoBehaviour
     void MoveLeftRight()
     {
         // Pindahkan object ke kiri terlebih dahulu, lalu ke kanan secara berulang
-        transform.DOMoveX(originalPosition.x - moveDistance, moveDuration)
+         transform.DOMoveX(-moveDistance, moveDuration)
+
             .SetEase(moveEase)                 // Atur ease function untuk animasi
             .SetLoops(-1, LoopType.Yoyo)       // Set animasi untuk looping tanpa batas (ping-pong)
             .SetRelative()                     // Gerakkan relatif terhadap posisi saat ini
