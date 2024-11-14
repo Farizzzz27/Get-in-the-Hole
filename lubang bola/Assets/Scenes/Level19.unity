@@ -4093,7 +4093,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveDistance: 17
-  moveDuration: 2
+  moveDuration: 3
   startDelay: 0.5
   moveEase: 1
 --- !u!114 &1055498657

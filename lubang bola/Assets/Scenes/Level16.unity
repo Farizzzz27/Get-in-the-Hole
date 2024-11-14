@@ -6173,7 +6173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveDistance: 13
-  moveDuration: 2
+  moveDuration: 4
   startDelay: 0.5
   moveEase: 1
 --- !u!4 &1222170767 stripped

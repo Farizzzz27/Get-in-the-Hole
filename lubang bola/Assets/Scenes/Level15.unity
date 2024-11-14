@@ -3411,6 +3411,7 @@ MonoBehaviour:
   rotationX: 20
   rotationY: 0
   rotationZ: 0
+  freezeCamera: 0
 --- !u!1 &974134929 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 401280973184490342, guid: 5a847abb5e28eb6489ace59bc3e19baf, type: 3}
@@ -4617,7 +4618,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveDistance: 8
-  moveDuration: 2
+  moveDuration: 4
   startDelay: 0.5
   moveEase: 1
 --- !u!1 &1427068621
