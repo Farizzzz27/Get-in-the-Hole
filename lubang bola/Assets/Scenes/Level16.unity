@@ -908,7 +908,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointA: {fileID: 1662468186}
   pointB: {fileID: 714167384}
-  speed: 2
+  speed: 5
 --- !u!65 &213688472
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1179,6 +1179,10 @@ PrefabInstance:
     - target: {fileID: 7494227532924258572, guid: a24067be137485348b878151d5e96a53, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8249263049188735933, guid: a24067be137485348b878151d5e96a53, type: 3}
+      propertyPath: speed
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8695100670179306286, guid: a24067be137485348b878151d5e96a53, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1527,7 +1531,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointA: {fileID: 1662468186}
   pointB: {fileID: 1360903841}
-  speed: 2
+  speed: 5
 --- !u!65 &328015702
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4050,7 +4054,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointA: {fileID: 1662468186}
   pointB: {fileID: 1265795001}
-  speed: 2
+  speed: 5
 --- !u!65 &889753899
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5596,7 +5600,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointA: {fileID: 1662468186}
   pointB: {fileID: 1433414868}
-  speed: 2
+  speed: 5
 --- !u!65 &1128325531
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6390,7 +6394,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointA: {fileID: 242635830}
   pointB: {fileID: 1890883151}
-  speed: 2
+  speed: 5
 --- !u!65 &1262030264
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6624,7 +6628,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointA: {fileID: 242635830}
   pointB: {fileID: 578453448}
-  speed: 2
+  speed: 5
 --- !u!65 &1287900151
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8027,6 +8031,10 @@ PrefabInstance:
     - target: {fileID: 7494227532924258572, guid: a24067be137485348b878151d5e96a53, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8249263049188735933, guid: a24067be137485348b878151d5e96a53, type: 3}
+      propertyPath: speed
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8695100670179306286, guid: a24067be137485348b878151d5e96a53, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9833,7 +9841,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointA: {fileID: 242635830}
   pointB: {fileID: 354963437}
-  speed: 2
+  speed: 5
 --- !u!65 &1890118056
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10621,7 +10629,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointA: {fileID: 242635830}
   pointB: {fileID: 1944287523}
-  speed: 2
+  speed: 5
 --- !u!65 &2112491013
 BoxCollider:
   m_ObjectHideFlags: 0
