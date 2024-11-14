@@ -10,12 +10,13 @@ public class CameraFollow : MonoBehaviour
     public float rotationX = 10f; // Variabel rotasi pada sumbu X untuk mengatur tinggi pandangan
     public float rotationY = 0f; // Variabel rotasi pada sumbu Y untuk mengatur rotasi horizontal
     public float rotationZ = 0f; // Variabel rotasi pada sumbu Z untuk mengatur rotasi roll
+    public bool freezeCamera = false; // Status freeze kamera
 
     private float currentRotationY = 0f; // Menyimpan nilai rotasi saat ini pada sumbu Y
 
     private void LateUpdate()
     {
-        if (target != null)
+        if (target != null && !freezeCamera) // Tambahkan pengecekan freezeCamera
         {
             // Periksa input untuk rotasi pada sumbu Y (kiri dan kanan)
             if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
