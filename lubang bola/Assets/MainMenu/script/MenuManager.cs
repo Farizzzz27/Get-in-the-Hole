@@ -5,6 +5,13 @@ public class MenuManager : MonoBehaviour
     public GameObject mainMenuPanel;    // Panel untuk Main Menu
     public GameObject settingsPanel;    // Panel untuk Pengaturan
 
+    private void Start()
+    {
+        // Pastikan kursor terlihat di menu utama
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None; // Membebaskan kursor
+    }
+
     // Fungsi untuk membuka Panel Pengaturan
     public void OpenSettings()
     {

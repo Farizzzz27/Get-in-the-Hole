@@ -1,7 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UI : MonoBehaviour
 {
@@ -10,6 +9,10 @@ public class UI : MonoBehaviour
     private void Awake()
     {
         pause.SetActive(false);
+
+        // Pastikan kursor terkunci dan tidak terlihat saat masuk gameplay
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void PauseGame(bool status)
@@ -19,16 +22,21 @@ public class UI : MonoBehaviour
         if (status)
         {
             Time.timeScale = 0;
-            // Optionally pause audio here if needed
+
+            // Tampilkan kursor saat game di-pause
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
         }
         else
         {
             Time.timeScale = 1;
-            // Optionally resume audio here if needed
+
+            // Sembunyikan kursor saat kembali ke gameplay
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
         }
     }
 
-    // Update is called once per frame
     private void Update()
     {
         if (Input.GetKeyUp(KeyCode.Escape))
@@ -43,7 +51,10 @@ public class UI : MonoBehaviour
     public void MainMenu()
     {
         SceneManager.LoadScene(0);
-        Time.timeScale = 1;
-    }
 
+        // Pastikan waktu kembali normal dan kursor terlihat di main menu
+        Time.timeScale = 1;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+    }
 }
