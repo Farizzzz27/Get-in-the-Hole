@@ -25,4 +25,10 @@ public class MenuManager : MonoBehaviour
         settingsPanel.SetActive(false);
         mainMenuPanel.SetActive(true);
     }
+
+    public void QuitGame()
+    {
+        Debug.Log("Keluar dari game"); // Log untuk debugging (akan muncul di editor Unity)
+        Application.Quit();            // Keluar dari aplikasi
+    }
 }
