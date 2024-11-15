@@ -17,7 +17,8 @@ public class Win : MonoBehaviour
         {
             hasWon = true;
             PlayFireworks();
-            FreezeCamera(); // Tambahkan fungsi untuk freeze kamera
+            SaveProgress();
+            FreezeCamera();
         }
     }
 
@@ -37,6 +38,14 @@ public class Win : MonoBehaviour
 
         // Pindah ke scene berikutnya setelah delay
         Invoke("LoadNextScene", delayBeforeNextScene);
+    }
+
+    private void SaveProgress()
+    {
+        // Simpan progress level selesai
+        string currentLevel = SceneManager.GetActiveScene().name; // Nama level, misalnya "Level1"
+        PlayerPrefs.SetInt(currentLevel, 1);                      // Tandai level ini selesai
+        PlayerPrefs.Save();                                       // Pastikan tersimpan
     }
 
     private void FreezeCamera()
