@@ -1,5 +1,5 @@
-using System.Collections;
 using UnityEngine;
+using System.Collections;
 
 public class Player : MonoBehaviour
 {
@@ -7,19 +7,19 @@ public class Player : MonoBehaviour
     private Rigidbody playerRb;
     public Transform cameraTransform; // Referensi kamera
 
-    // Audio
-    public AudioSource walkSFX; // AudioSource untuk SFX jalan
-    public AudioSource collisionSFX; // AudioSource untuk SFX tabrakan
-    public float minWalkSpeed = 0.1f; // Kecepatan minimum untuk memutar SFX jalan
+    private AudioManager audioManager; // Menyimpan referensi ke AudioManager
+    private bool isWalkingSFXPlaying = false; // Untuk mencegah SFX berjalan diputar berulang kali
+
+    // Awake is called when the script instance is being loaded
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>(); // Mengambil referensi AudioManager di Awake
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();
-        if (walkSFX != null)
-        {
-            walkSFX.loop = true; // Set audio jalan agar di-loop
-        }
     }
 
     // Update is called once per frame
@@ -46,36 +46,32 @@ public class Player : MonoBehaviour
         // Tambahkan gaya ke player untuk pergerakan
         playerRb.AddForce(moveDirection * speed);
 
-        // Cek apakah kecepatan player lebih besar dari kecepatan minimum untuk memainkan SFX jalan
-        if (playerRb.velocity.magnitude > minWalkSpeed)
+        // Cek jika pemain memberikan input untuk bergerak
+        if (verticalInput != 0 || horizontalInput != 0)
         {
-            if (!walkSFX.isPlaying)
+            if (!isWalkingSFXPlaying)
             {
-                walkSFX.Play(); // Mulai SFX jalan jika tidak sedang diputar
+                isWalkingSFXPlaying = true;
+                audioManager.PlaySFX(audioManager.walk); // Memutar SFX jalan
             }
         }
         else
         {
-            if (walkSFX.isPlaying)
-            {
-                walkSFX.Stop(); // Hentikan SFX jalan jika tidak bergerak
-            }
+            isWalkingSFXPlaying = false; // Set status SFX jalan menjadi false jika tidak bergerak
         }
-    }
-
-    public IEnumerator BoostSpeed(float boostAmount, float boostDuration)
-    {
-        speed += boostAmount; // Tambahkan boost ke kecepatan
-        yield return new WaitForSeconds(boostDuration); // Tunggu selama boost berlangsung
-        speed -= boostAmount; // Kembalikan kecepatan normal
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        // Cek jika SFX sedang bermain, maka hentikan dulu untuk memungkinkan pemutaran ulang
-        if (collisionSFX != null)
-        {
-            collisionSFX.Play(); // Putar ulang SFX tabrakan
-        }
+        // Memutar SFX walltouch saat tabrakan
+        audioManager.PlaySFX(audioManager.walltouch); // Putar SFX walltouch saat terjadi tabrakan
+    }
+
+    // Metode untuk meningkatkan kecepatan player sementara
+    public IEnumerator BoostSpeed(float boostAmount, float boostDuration)
+    {
+        speed += boostAmount; // Tambahkan kecepatan
+        yield return new WaitForSeconds(boostDuration); // Tunggu selama boost berlangsung
+        speed -= boostAmount; // Kembalikan kecepatan normal setelah durasi selesai
     }
 }

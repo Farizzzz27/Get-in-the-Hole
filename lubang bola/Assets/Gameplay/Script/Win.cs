@@ -4,11 +4,17 @@ using UnityEngine.SceneManagement;
 public class Win : MonoBehaviour
 {
     public ParticleSystem fireworksParticle; // Referensi ke partikel kembang api
-    public AudioSource winSFX;               // AudioSource untuk SFX menang
     public float delayBeforeNextScene = 3f;  // Waktu tunggu sebelum pindah scene
     public string nextSceneName;             // Nama scene berikutnya
 
     private bool hasWon = false; // Pengaman agar hanya satu kali menang
+    private AudioManager audioManager; // Referensi ke AudioManager
+
+    private void Awake()
+    {
+        // Mengambil referensi AudioManager
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -30,10 +36,10 @@ public class Win : MonoBehaviour
             fireworksParticle.Play();
         }
 
-        // Mainkan SFX menang
-        if (winSFX != null)
+        // Mainkan SFX menang menggunakan AudioManager
+        if (audioManager != null)
         {
-            winSFX.Play();
+            audioManager.PlaySFX(audioManager.win); // Menggunakan AudioManager untuk memutar SFX menang
         }
 
         // Pindah ke scene berikutnya setelah delay
