@@ -5,27 +5,13 @@ using UnityEngine.UI;
 
 public class GameRestartManager : MonoBehaviour
 {
-    public Transform playerTransform;  // Referensi ke transformasi player
-    public Image fadeImage;            // UI Image untuk fade-out
-    public Text attemptText;           // UI Text untuk menampilkan jumlah percobaan
-    public float fadeDuration = 1f;    // Durasi fade-out
+    public Transform playerTransform; // Referensi ke transformasi player
+    public Image fadeImage;           // UI Image untuk fade-out
+    public float fadeDuration = 1f;   // Durasi fade-out
     public float fallThreshold = -50f; // Batas nilai Y sebelum restart
+    public AudioSource loseSFX;       // AudioSource untuk SFX kalah
 
     private bool isRestarting = false; // Pengaman agar restart hanya terjadi sekali
-    private int attemptCount = 0;      // Menghitung jumlah percobaan
-    private AdiosManager adiosManager; // Referensi ke AdiosManager
-
-    private void Awake()
-    {
-        // Mencari AdiosManager di scene menggunakan tag "Audio"
-        adiosManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AdiosManager>();
-
-        // Jika AdiosManager tidak ditemukan, tampilkan pesan error
-        if (adiosManager == null)
-        {
-            Debug.LogError("AdiosManager belum ditemukan di scene. Pastikan terdapat GameObject dengan tag 'Audio' dan memiliki komponen AdiosManager.");
-        }
-    }
 
     private void Start()
     {
@@ -33,12 +19,6 @@ public class GameRestartManager : MonoBehaviour
         Color color = fadeImage.color;
         color.a = 0f;
         fadeImage.color = color;
-
-        // Mengambil nilai attemptCount dari PlayerPrefs, mulai dari 0 jika pertama kali
-        attemptCount = PlayerPrefs.GetInt("AttemptCount", 1);
-
-        // Menampilkan attempt count di UI
-        UpdateAttemptText();
     }
 
     private void Update()
@@ -54,17 +34,10 @@ public class GameRestartManager : MonoBehaviour
     {
         isRestarting = true; // Tandai bahwa proses restart sudah dimulai
 
-        // Menambah nilai percobaan
-        attemptCount++;
-        PlayerPrefs.SetInt("AttemptCount", attemptCount); // Simpan nilai baru di PlayerPrefs
-
-        // Perbarui teks attempt di UI
-        UpdateAttemptText();
-
-        // Mainkan SFX kalah melalui AdiosManager
-        if (adiosManager != null)
+        // Mainkan SFX kalah
+        if (loseSFX != null)
         {
-            adiosManager.PlaySFX(adiosManager.lose);
+            loseSFX.Play();
         }
 
         // Play backward semua animasi DoTween di scene
@@ -76,20 +49,5 @@ public class GameRestartManager : MonoBehaviour
             // Setelah fade-out selesai, restart game
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         });
-    }
-
-    private void UpdateAttemptText()
-    {
-        // Update teks jumlah percobaan di UI Text
-        if (attemptText != null)
-        {
-            attemptText.text = "Attempt: " + attemptCount.ToString();
-        }
-    }
-
-    private void OnApplicationQuit()
-    {
-        // Hapus nilai attempt saat aplikasi ditutup
-        PlayerPrefs.DeleteKey("AttemptCount");
     }
 }

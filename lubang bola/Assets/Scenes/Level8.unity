@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: da04fb2a289ef1b47bf5b07b9285dd70, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: b7c00be18a6e7a2428b01c61aea8c5b6, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.22010098, g: 0.3873876, b: 0.5896629, a: 1}
+  m_IndirectSpecularColor: {r: 0.044401214, g: 0.10496415, b: 0.2444181, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4443,6 +4443,9 @@ MonoBehaviour:
   offset: {x: 0, y: 2, z: -8}
   rotationSpeed: 150
   rotationX: 20
+  rotationY: 0
+  rotationZ: 0
+  freezeCamera: 0
 --- !u!1 &1180216295 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8217610000787307275, guid: 2722e96272639ad45a21a4862d9b996e, type: 3}
@@ -8332,7 +8335,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 1057781345}
   fadeImage: {fileID: 1638764221}
-  attemptText: {fileID: 367740596}
   fadeDuration: 0.4
   fallThreshold: -20
   loseSFX: {fileID: 617859607}

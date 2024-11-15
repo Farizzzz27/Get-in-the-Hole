@@ -7,27 +7,60 @@ public class Player : MonoBehaviour
     private Rigidbody playerRb;
     public Transform cameraTransform; // Referensi kamera
 
+    // Audio
+    public AudioSource walkSFX; // AudioSource untuk SFX jalan
+    public AudioSource collisionSFX; // AudioSource untuk SFX tabrakan
     public float minWalkSpeed = 0.1f; // Kecepatan minimum untuk memutar SFX jalan
-    private bool isOnPlatform = false; // Menyimpan status apakah player berada di atas platform
-    private bool walkSFXPlaying = false; // Menyimpan status apakah SFX jalan sedang dimainkan
 
-    private AdiosManager adiosManager; // Referensi ke AdiosManager
-
-    private void Awake()
+    // Start is called before the first frame update
+    void Start()
     {
-        // Mencari AdiosManager di scene menggunakan tag "Audio"
-        adiosManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AdiosManager>();
-
-        // Jika AdiosManager tidak ditemukan, tampilkan pesan error
-        if (adiosManager == null)
+        playerRb = GetComponent<Rigidbody>();
+        if (walkSFX != null)
         {
-            Debug.LogError("AdiosManager belum ditemukan di scene. Pastikan terdapat GameObject dengan tag 'Audio' dan memiliki komponen AdiosManager.");
+            walkSFX.loop = true; // Set audio jalan agar di-loop
         }
     }
 
-    private void Start()
+    // Update is called once per frame
+    void Update()
     {
-        playerRb = GetComponent<Rigidbody>();
+        // Input untuk pergerakan vertikal dan horizontal
+        float verticalInput = Input.GetAxis("Vertical");
+        float horizontalInput = Input.GetAxis("Horizontal");
+
+        // Ambil arah forward dan right dari kamera
+        Vector3 forward = cameraTransform.forward;
+        Vector3 right = cameraTransform.right;
+
+        // Normalisasi arah forward dan right untuk memastikan panjang vektornya 1
+        forward.y = 0;  // Set Y ke 0 agar player hanya bergerak di bidang horizontal
+        right.y = 0;    // Set Y ke 0 untuk hal yang sama
+
+        forward.Normalize();
+        right.Normalize();
+
+        // Tentukan arah gerakan berdasarkan input player dan orientasi kamera
+        Vector3 moveDirection = forward * verticalInput + right * horizontalInput;
+
+        // Tambahkan gaya ke player untuk pergerakan
+        playerRb.AddForce(moveDirection * speed);
+
+        // Cek apakah kecepatan player lebih besar dari kecepatan minimum untuk memainkan SFX jalan
+        if (playerRb.velocity.magnitude > minWalkSpeed)
+        {
+            if (!walkSFX.isPlaying)
+            {
+                walkSFX.Play(); // Mulai SFX jalan jika tidak sedang diputar
+            }
+        }
+        else
+        {
+            if (walkSFX.isPlaying)
+            {
+                walkSFX.Stop(); // Hentikan SFX jalan jika tidak bergerak
+            }
+        }
     }
 
     public IEnumerator BoostSpeed(float boostAmount, float boostDuration)
@@ -37,54 +70,12 @@ public class Player : MonoBehaviour
         speed -= boostAmount; // Kembalikan kecepatan normal
     }
 
-    private void Update()
-    {
-        float verticalInput = Input.GetAxis("Vertical");
-        float horizontalInput = Input.GetAxis("Horizontal");
-
-        Vector3 forward = cameraTransform.forward;
-        Vector3 right = cameraTransform.right;
-        forward.y = 0; right.y = 0;
-        forward.Normalize(); right.Normalize();
-
-        Vector3 moveDirection = forward * verticalInput + right * horizontalInput;
-        playerRb.AddForce(moveDirection * speed);
-
-        // Cek apakah player bergerak di atas platform dengan kecepatan minimum
-        if (isOnPlatform && playerRb.velocity.magnitude > minWalkSpeed)
-        {
-            if (!walkSFXPlaying && adiosManager != null)
-            {
-                adiosManager.PlaySFX(adiosManager.walk);
-                walkSFXPlaying = true;
-            }
-        }
-        else
-        {
-            walkSFXPlaying = false;
-        }
-    }
-
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Platform"))
+        // Cek jika SFX sedang bermain, maka hentikan dulu untuk memungkinkan pemutaran ulang
+        if (collisionSFX != null)
         {
-            isOnPlatform = true;
-
-            // Mainkan SFX untuk walltouch saat menyentuh platform
-            if (adiosManager != null)
-            {
-                adiosManager.PlaySFX(adiosManager.walltouch);
-            }
-        }
-    }
-
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Platform"))
-        {
-            isOnPlatform = false;
-            walkSFXPlaying = false;
+            collisionSFX.Play(); // Putar ulang SFX tabrakan
         }
     }
 }

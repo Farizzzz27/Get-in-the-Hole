@@ -485,7 +485,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 281272340}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 8605363721589550251, guid: 589f955e5f6d1e0458aaf172f177d3ea, type: 2}
   m_audioClip: {fileID: 8300000, guid: 5556a0e906a708d498fe288401c414f4, type: 3}
@@ -3704,7 +3704,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 2062254160}
   fadeImage: {fileID: 1876166892}
-  attemptText: {fileID: 2113265707}
   fadeDuration: 0.4
   fallThreshold: -10
   loseSFX: {fileID: 281272342}
@@ -5622,6 +5621,9 @@ MonoBehaviour:
   offset: {x: 0, y: 2, z: -5}
   rotationSpeed: 150
   rotationX: 20
+  rotationY: 0
+  rotationZ: 0
+  freezeCamera: 0
 --- !u!114 &1758628750
 MonoBehaviour:
   m_ObjectHideFlags: 0
